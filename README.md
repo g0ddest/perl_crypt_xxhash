@@ -80,8 +80,8 @@ so they have the same throughput capacity.
 But other methods have some differences:
 
 ```
-                                  Rate Digest::xxHash::xxhash32_hex Crypt::xxHash::xxhash32_hex                                                                                
-Digest::xxHash::xxhash32_hex 2577320/s                           --                        -54%                                                                                
+                                  Rate Digest::xxHash::xxhash32_hex Crypt::xxHash::xxhash32_hex
+Digest::xxHash::xxhash32_hex 2577320/s                           --                        -54%
 Crypt::xxHash::xxhash32_hex  5543237/s                         115%                          --
 
                                Rate Digest::xxHash::xxhash64 Crypt::xxHash::xxhash64
