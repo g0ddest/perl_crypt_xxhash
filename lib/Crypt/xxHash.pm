@@ -44,7 +44,7 @@ Crypt::xxHash - xxHash implementation for Perl
 
 =head1 DESCRIPTION
 
-xxHash is s super fast algorithm that claims to work at speeds close to RAM limits.
+xxHash is a super fast algorithm that claims to work at speeds close to RAM limits.
 This package provides 32- and 64-bit hash functions.
 As bonus it provides 128-bit hex method.
 
