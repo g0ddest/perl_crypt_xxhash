@@ -14,10 +14,10 @@ my $build = Module::Build->new(
     },
     build_requires       => {
         'ExtUtils::CBuilder' => 0,
-        'Test::More'         => 0
+        'Test::More'         => 0,
+        'Math::Int64'        => '0.54' # 32bit perl without int64 :\
     },
     requires       => {
-		'Math::Int64' => '0.53' # 32bit perl without int64 :\
 	},
     needs_compiler => 1,
     #extra_compiler_flags => ['-Wall -W -Wundef -Wno-implicit-function-declaration'],
