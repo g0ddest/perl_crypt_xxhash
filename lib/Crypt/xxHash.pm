@@ -25,7 +25,11 @@ Crypt::xxHash - xxHash implementation for Perl
 
 =head1 SYNOPSIS
 
-    use Crypt::xxHash qw[xxhash32 xxhash32_hex xxhash64 xxhash64_hex xxhash3_64bits xxhash3_64bits_hex xxhash3_128bits_hex];
+    use Crypt::xxHash qw/
+            xxhash32 xxhash32_hex
+            xxhash64 xxhash64_hex
+            xxhash3_64bits xxhash3_64bits_hex
+            xxhash3_128bits_hex /;
 
     my $hash = xxhash32( $data, $seed );
     my $hex  = xxhash32_hex( $data, $seed );
@@ -92,8 +96,8 @@ so they have the same throughput capacity.
 
 But other methods have some differences:
 
-                                  Rate Digest::xxHash::xxhash32_hex Crypt::xxHash::xxhash32_hex                                                                                
-Digest::xxHash::xxhash32_hex 2577320/s                           --                        -54%                                                                                
+                                  Rate Digest::xxHash::xxhash32_hex Crypt::xxHash::xxhash32_hex
+Digest::xxHash::xxhash32_hex 2577320/s                           --                        -54%
 Crypt::xxHash::xxhash32_hex  5543237/s                         115%                          --
 
                                Rate Digest::xxHash::xxhash64 Crypt::xxHash::xxhash64
