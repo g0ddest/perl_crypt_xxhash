@@ -7,7 +7,11 @@ Crypt::xxHash - xxHash implementation for Perl
 ### SYNOPSIS
 
 ```perl
-    use Crypt::xxHash qw[xxhash32 xxhash32_hex xxhash64 xxhash64_hex xxhash3_64bits xxhash3_64bits_hex xxhash3_128bits_hex];
+    use Crypt::xxHash qw/
+            xxhash32 xxhash32_hex
+            xxhash64 xxhash64_hex
+            xxhash3_64bits xxhash3_64bits_hex
+            xxhash3_128bits_hex /;
 
     my $hash = xxhash32( $data, $seed );
     my $hex  = xxhash32_hex( $data, $seed );
