@@ -31,9 +31,9 @@ xxHash is a super fast algorithm that claims to work at speeds close to RAM limi
 This package provides 32- and 64-bit hash functions.
 As bonus it provides 128-bit hex method.
 
-This package was inspired by C<Digest::xxHash>, but it includes the fresh C code and has
+This package was inspired by "Digest::xxHash", but it includes the fresh C code and has
 some optimisations. Thus all hex methods are implemented in Perl XS.
-Also this module doesn't use C<Math::Int64> in favor of native 64 bit digits.
+Also this module doesn't use "Math::Int64" in favor of native 64 bit digits.
 
 ##### $h = xxhash32( $data, $seed )
 
