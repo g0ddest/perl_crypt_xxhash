@@ -20,8 +20,6 @@ ext/xxHash/README.md
 ext/xxHash/xxh3.h
 ext/xxHash/xxhash.c
 ext/xxHash/xxhash.h
-ext/xxHash/xxhsum.1
-ext/xxHash/xxhsum.1.md
 ext/xxHash/xxhsum.c
 ext/xxHash/xxh_x86dispatch.c
 ext/xxHash/xxh_x86dispatch.h
