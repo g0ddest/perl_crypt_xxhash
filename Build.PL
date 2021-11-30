@@ -35,7 +35,7 @@ my $build = Module::Build->new(
     include_dirs   => ['.', 'src', 'ext/xxHash'], # ext/xxHash/tests/collisions/allcodecs
     c_source       => ['.', 'src'],
     xs_files       => {
-        './xxHash.xs' => 'lib/Crypt/xxHash.xs' 
+        './xs/xxHash.xs' => './lib/Crypt/xxHash.xs' 
     },
     meta_merge     => {
         'resources' => {

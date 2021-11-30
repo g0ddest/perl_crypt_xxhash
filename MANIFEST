@@ -21,4 +21,4 @@ META.yml
 README
 README.md
 t/Crypt-xxHash.t
-xxHash.xs
+xs/xxHash.xs
