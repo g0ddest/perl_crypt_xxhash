@@ -39,6 +39,8 @@ typedef unsigned __int64 uint64_t;
 #ifdef HAS_INT64_T
 #endif
 
+using namespace std;
+
 MODULE = Crypt::xxHash  PACKAGE = Crypt::xxHash 
 
 PROTOTYPES: DISABLE
@@ -46,21 +48,21 @@ PROTOTYPES: DISABLE
 U32
 xxhash32( const char *input, int length(input), UV seed )
     CODE:
-        RETVAL = XXH32(input, STRLEN_length_of_input, seed);
+        RETVAL = XXH32(move(input), move(STRLEN_length_of_input), move(seed));
     OUTPUT:
         RETVAL
 
 UV
 xxhash64( const char *input, int length(input), UV seed )
     CODE:
-        RETVAL = (UV) XXH64(input, STRLEN_length_of_input, seed);
+        RETVAL = (UV) XXH64(move(input), move(STRLEN_length_of_input), move(seed));
     OUTPUT:
         RETVAL
 
 UV
 xxhash3_64bits( const char *input, int length(input), UV seed )
     CODE:
-        RETVAL = (UV) XXH3_64bits_withSeed(input, STRLEN_length_of_input, seed);
+        RETVAL = (UV) XXH3_64bits_withSeed(move(input), move(STRLEN_length_of_input), move(seed));
     OUTPUT:
         RETVAL
 
@@ -68,7 +70,8 @@ char*
 xxhash32_hex ( const char *input, int length(input), UV seed )
     CODE:
         static char value32[9];
-        sprintf(value32, "%08x", (uint32_t) XXH32(input, STRLEN_length_of_input, seed) );
+        static const char *format = "%08x";
+        sprintf(value32, format, (uint32_t) XXH32(move(input), move(STRLEN_length_of_input), move(seed)) );
         RETVAL = value32;
     OUTPUT:
         RETVAL
@@ -77,7 +80,8 @@ char*
 xxhash64_hex( const char *input, int length(input), UV seed )
     CODE:
         static char value64[17];
-        sprintf(value64, "%016" PRIx64, (uint64_t) XXH64(input, STRLEN_length_of_input, seed) );
+        static const char *format = "%016" PRIx64;
+        sprintf(value64, format, (uint64_t) XXH64(move(input), move(STRLEN_length_of_input), move(seed)) );
         RETVAL = value64;
     OUTPUT:
         RETVAL
@@ -86,7 +90,8 @@ char*
 xxhash3_64bits_hex( const char *input, int length(input), UV seed )
     CODE:
         static char value64[17];
-        sprintf(value64, "%016" PRIx64, (uint64_t) XXH3_64bits_withSeed(input, STRLEN_length_of_input, seed) );
+        static const char *format = "%016" PRIx64;
+        sprintf(value64, format, (uint64_t) XXH3_64bits_withSeed(move(input), move(STRLEN_length_of_input), move(seed)) );
         RETVAL = value64;
     OUTPUT:
         RETVAL
@@ -95,8 +100,9 @@ char*
 xxhash3_128bits_hex( const char *input, int length(input), UV seed )
     CODE:
         static char value64[33];
-        XXH128_hash_t hash = XXH3_128bits_withSeed(input, STRLEN_length_of_input, seed);
-        sprintf(value64, "%016" PRIx64 "%016" PRIx64, (uint64_t) hash.high64, (uint64_t) hash.low64 );
+        static const char *format = "%016" PRIx64 "%016" PRIx64;
+        XXH128_hash_t hash = XXH3_128bits_withSeed(move(input), move(STRLEN_length_of_input), move(seed));
+        sprintf(value64, format, (uint64_t) hash.high64, (uint64_t) hash.low64 );
         RETVAL = value64;
     OUTPUT:
         RETVAL
