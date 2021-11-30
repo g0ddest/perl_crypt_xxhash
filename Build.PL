@@ -13,8 +13,8 @@ my $build = Module::Build->new(
         'Module::Build' => '0.19' # xs
     },
     build_requires       => {
-        'ExtUtils::CBuilder' => 0,
-        'Test::More'         => 0,
+        'ExtUtils::CBuilder' => 0.280225,
+        'Test::More'         => 1.302183,
         'Math::Int64'        => '0.54' # 32bit perl without int64 :\
     },
     requires       => {
@@ -22,8 +22,8 @@ my $build = Module::Build->new(
     needs_compiler => 1,
     #extra_compiler_flags => ['-Wall -W -Wundef -Wno-implicit-function-declaration'],
     #extra_linker_flags => [ ],
-    include_dirs   => ['.'],
-    c_source       => ['ext/xxHash', 'src'],
+    include_dirs   => ['.', 'src', 'ext/xxHash'], # ext/xxHash/tests/collisions/allcodecs
+    c_source       => ['.', 'src'],
     xs_files       => {
         './xxHash.xs' => 'lib/Crypt/xxHash.xs' 
     },

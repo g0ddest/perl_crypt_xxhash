@@ -35,6 +35,8 @@ This package was inspired by "Digest::xxHash", but it includes the fresh C code 
 some optimisations. Thus all hex methods are implemented in Perl XS.
 Also this module doesn't use "Math::Int64" in favor of native 64 bit digits.
 
+The used version of xxHash is v0.8.0
+
 ##### $h = xxhash32( $data, $seed )
 
 Returns a 32 bit hash.
