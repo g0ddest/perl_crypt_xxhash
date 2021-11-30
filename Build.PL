@@ -3,7 +3,13 @@ package main;
 use utf8;
 use warnings;
 use strict;
-use Module::Build;
+use Module::Build ();
+use Config ();
+
+my %Config = %Config::Config;
+my @cc_flags = split(/ /, $Config{'ccflags'});
+
+push(@cc_flags, "-O3", "-std=c++17", "-msse2", "-msse4.2");
 
 my $build = Module::Build->new(
     module_name         => 'Crypt::xxHash',
@@ -11,6 +17,10 @@ my $build = Module::Build->new(
     create_readme       => 1,
     configure_requires  => {
         'Module::Build' => '0.19' # xs
+    },
+    config => {
+        cc => 'c++',
+        ld => 'c++',
     },
     build_requires       => {
         'ExtUtils::CBuilder' => 0.280225,
@@ -20,8 +30,8 @@ my $build = Module::Build->new(
     requires       => {
 	},
     needs_compiler => 1,
-    #extra_compiler_flags => ['-Wall -W -Wundef -Wno-implicit-function-declaration'],
-    #extra_linker_flags => [ ],
+    extra_compiler_flags => [@cc_flags],
+    extra_linker_flags   => [@cc_flags],
     include_dirs   => ['.', 'src', 'ext/xxHash'], # ext/xxHash/tests/collisions/allcodecs
     c_source       => ['.', 'src'],
     xs_files       => {

@@ -77,7 +77,7 @@ char*
 xxhash64_hex( const char *input, int length(input), UV seed )
     CODE:
         static char value64[17];
-        sprintf(value64, "%016"PRIx64, (uint64_t) XXH64(input, STRLEN_length_of_input, seed) );
+        sprintf(value64, "%016" PRIx64, (uint64_t) XXH64(input, STRLEN_length_of_input, seed) );
         RETVAL = value64;
     OUTPUT:
         RETVAL
@@ -86,7 +86,7 @@ char*
 xxhash3_64bits_hex( const char *input, int length(input), UV seed )
     CODE:
         static char value64[17];
-        sprintf(value64, "%016"PRIx64, (uint64_t) XXH3_64bits_withSeed(input, STRLEN_length_of_input, seed) );
+        sprintf(value64, "%016" PRIx64, (uint64_t) XXH3_64bits_withSeed(input, STRLEN_length_of_input, seed) );
         RETVAL = value64;
     OUTPUT:
         RETVAL
@@ -96,7 +96,7 @@ xxhash3_128bits_hex( const char *input, int length(input), UV seed )
     CODE:
         static char value64[33];
         XXH128_hash_t hash = XXH3_128bits_withSeed(input, STRLEN_length_of_input, seed);
-        sprintf(value64, "%016"PRIx64"%016"PRIx64, (uint64_t) hash.high64, (uint64_t) hash.low64 );
+        sprintf(value64, "%016" PRIx64 "%016" PRIx64, (uint64_t) hash.high64, (uint64_t) hash.low64 );
         RETVAL = value64;
     OUTPUT:
         RETVAL
