@@ -30,3 +30,5 @@ src/ppport.h
 README
 t/Crypt-xxHash.t
 xxHash.xs
+META.yml
+META.json
