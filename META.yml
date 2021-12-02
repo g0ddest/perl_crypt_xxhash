@@ -7,6 +7,7 @@ build_requires:
   Math::Int64: '0.54'
   Test::More: '1.302183'
 configure_requires:
+  File::Which: '1.21'
   Module::Build: '0.19'
 dynamic_config: 1
 generated_by: 'Module::Build version 0.422, CPAN::Meta::Converter version 2.150010'

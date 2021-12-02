@@ -23,6 +23,7 @@
       },
       "configure" : {
          "requires" : {
+            "File::Which" : "1.21",
             "Module::Build" : "0.19"
          }
       }
