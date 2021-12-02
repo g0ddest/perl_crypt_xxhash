@@ -8,6 +8,6 @@
 ^blib
 \.bak$
 \.old$
-\.c$
-\.h$
-\.o$
+xs/\.c$
+xs/\.h$
+xs/\.o$

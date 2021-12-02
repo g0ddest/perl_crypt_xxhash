@@ -21,15 +21,15 @@ my $build = Module::Build->new(
     license             => 'bsd',
     create_readme       => 1,
     configure_requires  => {
-        'File::Which'   => 1.21,
         'Module::Build' => 0.19 # xs
     },
     config => {
         $has_cpp_compiler ? (cc => 'c++', ld => 'c++') : (),
     },
     build_requires       => {
+        'File::Which'        => 1.21,
         'ExtUtils::CBuilder' => 0.280225,
-        'Test::More'         => 1.302183,
+        'Test::More'         => 1.302171,
         'Math::Int64'        => '0.54' # 32bit perl without int64 :\
     },
     requires       => {

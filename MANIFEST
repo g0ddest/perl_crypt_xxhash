@@ -12,6 +12,11 @@ ext/xxHash/libxxhash.pc.in
 ext/xxHash/LICENSE
 ext/xxHash/Makefile
 ext/xxHash/README.md
+ext/xxHash/xxh3.h
+ext/xxHash/xxh_x86dispatch.c
+ext/xxHash/xxh_x86dispatch.h
+ext/xxHash/xxhash.c
+ext/xxHash/xxhash.h
 lib/Crypt/xxHash.pm
 LICENSE
 MANIFEST
@@ -20,5 +25,6 @@ META.json
 META.yml
 README
 README.md
+src/ppport.h
 t/Crypt-xxHash.t
 xs/xxHash.xs
