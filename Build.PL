@@ -5,22 +5,27 @@ use warnings;
 use strict;
 use Module::Build ();
 use Config ();
+use File::Which qw/ which /;
+
+my $has_cpp_compiler = scalar(which("c++"));
 
 my %Config = %Config::Config;
 my @cc_flags = split(/ /, $Config{'ccflags'});
 
-push(@cc_flags, "-O3", "-std=c++17", "-msse2", "-msse4.2");
+push(@cc_flags, "-O3", "-msse2", "-msse4.2");
+push(@cc_flags, "-DCPP=1", "-std=c++17") if $has_cpp_compiler;
+push(@cc_flags, "-std=c17") if !$has_cpp_compiler;
 
 my $build = Module::Build->new(
     module_name         => 'Crypt::xxHash',
     license             => 'bsd',
     create_readme       => 1,
     configure_requires  => {
-        'Module::Build' => '0.19' # xs
+        'File::Which'   => 1.21,
+        'Module::Build' => 0.19 # xs
     },
     config => {
-        cc => 'c++',
-        ld => 'c++',
+        $has_cpp_compiler ? (cc => 'c++', ld => 'c++') : (),
     },
     build_requires       => {
         'ExtUtils::CBuilder' => 0.280225,
