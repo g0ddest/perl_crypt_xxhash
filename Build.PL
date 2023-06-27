@@ -12,7 +12,7 @@ my $has_cpp_compiler = scalar(which("c++"));
 my %Config = %Config::Config;
 my @cc_flags = split(/ /, $Config{'ccflags'});
 
-push(@cc_flags, "-O3", "-msse2", "-msse4.2");
+push(@cc_flags, "-O3");
 push(@cc_flags, "-DCPP=1", "-std=c++17") if $has_cpp_compiler;
 push(@cc_flags, "-std=c17") if !$has_cpp_compiler;
 
